@@ -19,7 +19,8 @@ app.use(express.json());
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../sparcs_newbie_proj_front/build')));
+//app.use(express.static(path.join(__dirname, '../sparcs_newbie_proj_front/build')));
+//app.get('')
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -40,4 +41,23 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+/*
+const passport = require('passport')
+, LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+))
+*/
 module.exports = app;
