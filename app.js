@@ -8,7 +8,8 @@ const bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var app = express();
+const app = express();
+const db = require('./db.js')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,23 +42,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-/*
-const passport = require('passport')
-, LocalStrategy = require('passport-local').Strategy;
-
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function(err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-))
-*/
 module.exports = app;

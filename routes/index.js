@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
 router.post('/login-post', (req, res)=>{
   //use DB, middleware!!
   console.log(req.body.content)
@@ -16,5 +17,11 @@ router.post('/login-post', (req, res)=>{
     res.send("You Logged In!")
   else res.send("Fail To Login")
 });
+
+//11/27 added
+router.get('/create', function(req,res){
+  console.log("Create Access");
+  const 
+})
 
 module.exports = router;
