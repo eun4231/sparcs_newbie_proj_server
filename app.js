@@ -20,8 +20,8 @@ app.use(express.json());
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, '../sparcs_newbie_proj_front/build')));
-//app.get('')
+app.use(express.static(path.join(__dirname, '../sparcs_newbie_proj_front/build')));
+app.get('')
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
