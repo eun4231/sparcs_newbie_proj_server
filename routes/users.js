@@ -13,7 +13,7 @@ router.post('/add', (req, res)=>{
     id: last_id,
     content: req.body.content
   });
-  await todo.save();
+  todo.save();
 });
 
 router.get('/todos', (req, res)=>{
@@ -24,12 +24,12 @@ router.get('/todos', (req, res)=>{
 
 router.post('/update', (req, res)=>{
   findByIdAndUpdate()
-  await todo.save();
+  todo.save();
 });
 
 router.post('/delete', (req, res)=>{
   findByIdAndRemove()
-  await todo.save();
+  todo.save();
 });
 
 module.exports = router;

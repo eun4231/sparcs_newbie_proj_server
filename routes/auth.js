@@ -10,4 +10,13 @@ router.get('login', (req,res)=>{
   res.send("You Logged In!");
 });
 
+/*using passport
+app.post('/auth', passport.authenticate('local', {
+  successRedirect: '/user',
+  failureRedirect: '/auth',
+  failureFlash: true
+}))
+*/
+
+
 module.exports = router;

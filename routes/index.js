@@ -18,10 +18,5 @@ router.post('/login-post', (req, res)=>{
   else res.send("Fail To Login")
 });
 
-//11/27 added
-router.get('/create', function(req,res){
-  console.log("Create Access");
-  const 
-})
 
 module.exports = router;
