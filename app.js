@@ -1,5 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
+var mongoose = require('mongoose');
+//var session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -11,6 +13,7 @@ var usersRouter = require('./routes/users');
 const app = express();
 const db = require('./db.js')
 
+mongoose.connect("mongodb://127.0.0.1")
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

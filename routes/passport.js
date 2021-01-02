@@ -1,6 +1,10 @@
 const passport = reqire('passport')
     , LocalStrategy = require('passport-local').Strategy;
+const app = require('../app');
 const Users = require('./user');
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 passport.use(new LocalStrategy({
     usernameField: 'id',
@@ -12,7 +16,11 @@ passport.use(new LocalStrategy({
             if(!user){
                 return done(null, false, {message: 'Incorrect username.'});
             }
-            return done(null, user);
+        if (!user.validPassword(password)) {
+            return done(null, false, { message: 'Incorrect password.' });
+          }
+          return done(null, user);
         });
     }
 ));
+module.exports = passport;

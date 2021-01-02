@@ -1,4 +1,6 @@
 var express = require('express');
+//var mongoose = require('mongoose');
+//var session = require('express-session');
 const authRouter = require('./auth');
 var router = express.Router();
 
